@@ -1,13 +1,19 @@
 import React, { useRef, useState } from "react";
 import yourSvgFile from "/src/assets/yourSvgFile.svg";
+import "./SvgViewer.css"; // Import the CSS file for styling
 
 const SvgViewer = () => {
+  const issues = [{}];
+
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [circleCount, setCircleCount] = useState(1); // State to keep track of circle count
+  const [showPopup, setShowPopup] = useState(false); // State to manage pop-up visibility
 
   const handleCircleClick = (circleNumber: number) => {
     return () => {
       console.log(`Circle ${circleNumber} clicked`);
+      // Show the pop-up window when a circle is clicked
+      setShowPopup(true);
     };
   };
 
@@ -59,6 +65,9 @@ const SvgViewer = () => {
       svg.appendChild(text);
 
       setCircleCount(circleCount + 1);
+
+      // Show the pop-up window after adding the circle
+      setShowPopup(true);
     }
   };
 
@@ -77,6 +86,14 @@ const SvgViewer = () => {
           <image xlinkHref={yourSvgFile} width="100" height="100" />
         </svg>
       </div>
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <p>Circle added!</p>
+            <button onClick={() => setShowPopup(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
