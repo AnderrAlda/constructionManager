@@ -1,10 +1,10 @@
 import "./App.css";
-import SvgViewer from "./components/svgViewer";
+import { Blueprint } from "./pages/blueprints";
 
 function App() {
   return (
     <>
-      <SvgViewer />
+      <Blueprint />
     </>
   );
 }
