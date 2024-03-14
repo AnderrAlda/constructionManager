@@ -34,7 +34,7 @@ const Tasks = () => {
 
   return (
     <div>
-      <Header header="Trabajos" />
+      <Header header="Trabajos" withExit={false} />
       <div className="ml-5 mb-5">
         <HorizontalScrollLayout>
           {Filters.map((key, value) => (

@@ -30,7 +30,7 @@ const Blueprint = () => {
 
   return (
     <div>
-      <Header header="Planos" />
+      <Header header="Planos" withExit={false} />
       <VerticalScrollLayout height="44rem">
         {data.map((value, key) => (
           <IndividualBlueprint data={value} key={key} />

@@ -6,7 +6,7 @@ interface props {
 
 const IndividualTask = ({ img, title, date }: props) => {
   return (
-    <div className="flex gap-7 mt-8 ml-3 border-2 border-black shadow-md mr-3 py-6 px-2 rounded-xl">
+    <div className="flex gap-7 mt-5 ml-3 border-2 border-black shadow-md mr-3 py-6 px-2 rounded-xl">
       <img
         className="h-20 rounded-full  border-2 border-black shadow-2xl"
         src={img}
