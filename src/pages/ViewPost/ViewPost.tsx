@@ -1,7 +1,8 @@
 import { IoCreateOutline } from "react-icons/io5";
 import { worker1, working1, yourSVGfile } from "../../assets";
-import { Header } from "../../components/Header";
-import VerticalScrollLayout from "../../layouts/VerticalScroll/VerticalScroll";
+
+import { VerticalScrollLayout } from "../../layouts";
+import { Header } from "../../components";
 
 const ViewPost = () => {
   const Data = {

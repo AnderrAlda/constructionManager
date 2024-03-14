@@ -1,5 +1,3 @@
-export { default as HorizontalScroll } from "./HorizontalScroll/HorizontalScroll";
+export { HorizontalScrollLayout } from "./HorizontalScrollLayout";
 
-export { default as VerticalScroll } from "./VerticalScroll/VerticalScroll";
-
-export { default as VerticalScroll2x } from "./VerticalScroll2x/VerticalScroll2x";
+export { VerticalScrollLayout } from "./VerticalScrollLayout";

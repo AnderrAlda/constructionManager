@@ -1,7 +1,5 @@
-import { Header } from "../../components/Header";
-import { IndividualBlueprint } from "../../components/IndividualBlueprint";
-import { NavBar } from "../../components/NavBar";
-import VerticalScrollLayout from "../../layouts/VerticalScroll/VerticalScroll";
+import { Header, IndividualBlueprint, NavBar } from "../../components";
+import { VerticalScrollLayout } from "../../layouts";
 
 const Blueprint = () => {
   const data = [

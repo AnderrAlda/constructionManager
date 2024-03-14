@@ -1,10 +1,6 @@
-import { Header } from "../../components/Header";
-import { NavBar } from "../../components/NavBar";
-import VerticalScrollLayout from "../../layouts/VerticalScroll/VerticalScroll";
-
 import { worker1 } from "../../assets";
-import { IndividualTask } from "../../components/IndividualTask";
-import HorizontalScrollLayout from "../../layouts/HorizontalScroll/HorizontalScroll";
+import { Header, IndividualTask, NavBar } from "../../components";
+import { HorizontalScrollLayout, VerticalScrollLayout } from "../../layouts";
 
 const Tasks = () => {
   const Data = [

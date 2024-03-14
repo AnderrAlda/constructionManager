@@ -1,12 +1,5 @@
-import {
-  IoCaretDownSharp,
-  IoCash,
-  IoMap,
-  IoReorderFour,
-  IoScanSharp,
-} from "react-icons/io5";
-import { Header } from "../../components/Header";
-import { NavBar } from "../../components/NavBar";
+import { IoCash, IoMap, IoReorderFour, IoScanSharp } from "react-icons/io5";
+import { Header, NavBar } from "../../components";
 
 const CreatePost = () => {
   return (
