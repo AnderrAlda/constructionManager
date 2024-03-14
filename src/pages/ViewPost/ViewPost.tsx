@@ -1,3 +1,4 @@
+import { IoCreateOutline } from "react-icons/io5";
 import { worker1, working1, yourSVGfile } from "../../assets";
 import { Header } from "../../components/Header";
 import VerticalScrollLayout from "../../layouts/VerticalScroll/VerticalScroll";
@@ -26,6 +27,7 @@ const ViewPost = () => {
   };
   return (
     <div>
+      <IoCreateOutline className="absolute text-3xl right-5 top-3" />
       <Header header="Post 1" withExit={true} />
       <div className="flex ml-5 gap-5 mt-5 mr-5 mb-5">
         <img
