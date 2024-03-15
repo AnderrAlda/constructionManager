@@ -1,0 +1,1 @@
+export { RoutesType } from "./routes";

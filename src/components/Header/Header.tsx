@@ -1,5 +1,5 @@
 import { IoArrowBackOutline } from "react-icons/io5";
-
+import { useNavigate } from "react-router-dom";
 interface props {
   header: string;
   withExit: boolean;
@@ -12,11 +12,18 @@ const Header = ({ header, withExit }: props) => {
     hidden = " ";
   }
 
-  //make it with history to go back the previous page!!!!
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className=" flex items-center justify-center h-16">
       <p className="text-2xl">{header}</p>
-      <IoArrowBackOutline className={`absolute left-5 text-2xl ${hidden}`} />
+
+      <button onClick={goBack}>
+        <IoArrowBackOutline className={`absolute left-5 text-2xl ${hidden}`} />
+      </button>
     </div>
   );
 };

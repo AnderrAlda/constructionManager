@@ -4,6 +4,9 @@ interface props {
   date: string;
 }
 
+import { Link } from "react-router-dom";
+import { RoutesType } from "../../types";
+
 const IndividualTask = ({ img, title, date }: props) => {
   return (
     <div className="flex gap-7 mt-5 ml-3 border-2 border-black shadow-md mr-3 py-6 px-2 rounded-xl">
@@ -15,13 +18,15 @@ const IndividualTask = ({ img, title, date }: props) => {
       <div>
         <p className="text-2xl font-bold">{title}</p>
         <p className="text-gray-500 mt-2">{date}</p>
-        <button
-          className="mt-5 bg-black
+        <Link to={RoutesType.VIEWPOST}>
+          <button
+            className="mt-5 bg-black
    text-white rounded-3xl h-10 w-32
    text-lg"
-        >
-          Ver mas
-        </button>
+          >
+            Ver mas
+          </button>
+        </Link>
       </div>
     </div>
   );
