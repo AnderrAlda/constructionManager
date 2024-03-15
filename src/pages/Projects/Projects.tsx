@@ -1,24 +1,40 @@
-import { worker1 } from "../../assets";
-import { Header, NavBar } from "../../components";
+import { Header } from "../../components";
+import { IndividualProject } from "../../components/IndividualProject";
 
 const Projects = () => {
+  const Data = [
+    {
+      title: "PROYECTO 1",
+      date: "26.10.2012",
+      tasks: 3,
+      people: 7,
+    },
+    {
+      title: "PROYECTO 2",
+      date: "22.11.2019",
+      tasks: 6,
+      people: 3,
+    },
+    {
+      title: "PROYECTO 3",
+      date: "02.01.2023",
+      tasks: 22,
+      people: 7,
+    },
+  ];
+
   return (
     <div>
-      <Header header="Projects" withExit={false} />
-
-      <div className="border-2 border-black mx-5">
-        <div className="flex items-center justify-center">
-          <div className=" w-60 h-40 bg-gray-400"></div>
-        </div>
-        <p>NOMBRE DEL PROYECTO</p>
-        <div>
-          <img
-            className="h-8 rounded-full  border-2 border-black shadow-2xl"
-            src={worker1}
-            alt="worker1"
-          />
-        </div>
-      </div>
+      <Header header="Projectos" withExit={false} />
+      {Data.map((value, key) => (
+        <IndividualProject
+          key={key}
+          title={value.title}
+          date={value.date}
+          tasks={value.tasks}
+          people={value.people}
+        />
+      ))}
     </div>
   );
 };
