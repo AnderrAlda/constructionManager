@@ -1,5 +1,6 @@
 import { Header } from "../../components";
 import { IndividualProject } from "../../components/IndividualProject";
+import ZoomI from "../../components/test/Test";
 
 const Projects = () => {
   const Data = [

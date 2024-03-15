@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { RoutesType } from "./types";
 import SvgViewer from "./components/svgViewer";
+import Test from "./pages/Test/Test";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path={RoutesType.BLUEPRINT} element={<Blueprint />} />
           <Route path={RoutesType.CREATEPOST} element={<CreatePost />} />
           <Route path={RoutesType.TEST} element={<SvgViewer />} />
+          <Route path="/test2" element={<Test />} />
         </Routes>
       </BrowserRouter>
     </>
