@@ -8,6 +8,7 @@ const SvgViewer = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [circleCount, setCircleCount] = useState(1); // State to keep track of circle count
   const [showPopup, setShowPopup] = useState(false); // State to manage pop-up visibility
+  const [zoomLevel, setZoomLevel] = useState(1); // State to manage zoom level
 
   const handleCircleClick = (circleNumber: number) => {
     return () => {
@@ -67,34 +68,49 @@ const SvgViewer = () => {
       setCircleCount(circleCount + 1);
 
       // Show the pop-up window after adding the circle
-      setShowPopup(true);
+      //setShowPopup(true);
     }
   };
 
+  const handleZoom = (delta: number) => {
+    setZoomLevel((prevZoom) => Math.max(0.1, prevZoom + delta));
+  };
+
   return (
-    <div className="svg-container">
-      <h1>SVG Display</h1>
-      <div className="svg-content">
-        <svg
-          ref={svgRef}
-          onClick={handleSvgClick}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 100 100"
-          width="1000"
-          height="1000"
+    <>
+      <div className="svg-container">
+        <h1>SVG Display</h1>
+        <div
+          className="svg-content"
+          style={{ transform: `scale(${zoomLevel})` }}
         >
-          <image xlinkHref={yourSvgFile} width="100" height="100" />
-        </svg>
-      </div>
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <p>Circle added!</p>
-            <button onClick={() => setShowPopup(false)}>Close</button>
-          </div>
+          <svg
+            ref={svgRef}
+            //onClick={handleSvgClick}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            width="400"
+            height="400"
+          >
+            <image xlinkHref={yourSvgFile} width="100" height="100" />
+          </svg>
         </div>
-      )}
-    </div>
+
+        {showPopup && (
+          <div className="popup-overlay">
+            <div className="popup">
+              <p>Circle added!</p>
+              <button onClick={() => setShowPopup(false)}>Close</button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="zoom-buttons">
+        <button onClick={() => handleZoom(0.5)}>Zoom In</button>
+        <button onClick={() => handleZoom(-0.1)}>Zoom Out</button>
+      </div>
+    </>
   );
 };
 

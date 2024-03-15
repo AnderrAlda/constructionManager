@@ -4,4 +4,5 @@ export const RoutesType = {
   BLUEPRINT: "/Blueprint",
   CREATEPOST: "/CreatePost",
   PROJECTS: "/",
+  TEST: "test",
 };
