@@ -1,4 +1,4 @@
-import ZoomI from "../../components/test/Test";
+import { ZoomI } from "../../components/ZoomI";
 
 const Test = () => {
   return (

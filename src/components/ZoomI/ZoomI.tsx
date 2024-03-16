@@ -121,7 +121,7 @@ export default function ZoomI({ width, height }: ZoomIProps) {
           Pan & Zoom III
         </a>
       </div>
-      <style jsx>{`
+      <style>{`
         .btn {
           margin: 0;
           text-align: center;
