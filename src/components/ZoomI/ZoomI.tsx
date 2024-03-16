@@ -1,21 +1,11 @@
-/* eslint react/jsx-handler-names: "off" */
-import React, { useState } from "react";
-import { interpolateRainbow } from "d3-scale-chromatic";
 import { Zoom } from "@vx/zoom";
 import { localPoint } from "@vx/event";
 import { RectClipPath } from "@vx/clip-path";
-import genPhyllotaxis, {
-  GenPhyllotaxisFunction,
-  PhyllotaxisPoint,
-} from "@vx/mock-data/lib/generators/genPhyllotaxis";
-import { scaleLinear } from "@vx/scale";
+
 import { yourSVGfile } from "../../assets";
+import "./ZoomI.css"; // Import the CSS file
 
-const bg = "#0a0a0a";
-const points = [...new Array(1000)];
-
-const colorScale = scaleLinear<number>({ range: [0, 1], domain: [0, 1000] });
-const sizeScale = scaleLinear<number>({ domain: [0, 600], range: [0.5, 8] });
+const bg = "#737373";
 
 const initialTransform = {
   scaleX: 1.27,
@@ -32,15 +22,6 @@ export type ZoomIProps = {
 };
 
 export default function ZoomI({ width, height }: ZoomIProps) {
-  const [showMiniMap, setShowMiniMap] = useState<boolean>(true);
-
-  const genenerator: GenPhyllotaxisFunction = genPhyllotaxis({
-    radius: 10,
-    width,
-    height,
-  });
-  const phyllotaxis: PhyllotaxisPoint[] = points.map((d, i) => genenerator(i));
-
   return (
     <>
       <Zoom
@@ -57,6 +38,7 @@ export default function ZoomI({ width, height }: ZoomIProps) {
             <svg
               width={width}
               height={height}
+              className="zoom-svg" // Add class name for SVG
               style={{ cursor: zoom.isDragging ? "grabbing" : "grab" }}
             >
               <RectClipPath id="zoom-clip" width={width} height={height} />
@@ -102,71 +84,10 @@ export default function ZoomI({ width, height }: ZoomIProps) {
               >
                 -
               </button>
-              <button className="btn btn-lg" onClick={zoom.center}>
-                Center
-              </button>
-              <button className="btn btn-lg" onClick={zoom.reset}>
-                Reset
-              </button>
-              <button className="btn btn-lg" onClick={zoom.clear}>
-                Clear
-              </button>
             </div>
           </div>
         )}
       </Zoom>
-      <div className="description">
-        Based on Mike Bostock's{" "}
-        <a href="https://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45">
-          Pan & Zoom III
-        </a>
-      </div>
-      <style>{`
-        .btn {
-          margin: 0;
-          text-align: center;
-          border: none;
-          background: #2f2f2f;
-          color: #888;
-          padding: 0 4px;
-          border-top: 1px solid #0a0a0a;
-        }
-        .btn-lg {
-          font-size: 12px;
-          line-height: 1;
-          padding: 4px;
-        }
-        .btn-zoom {
-          width: 26px;
-          font-size: 22px;
-        }
-        .btn-bottom {
-          margin-bottom: 1rem;
-        }
-        .description {
-          font-size: 12px;
-          margin-right: 0.25rem;
-        }
-        .controls {
-          position: absolute;
-          top: 15px;
-          right: 15px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-        }
-        .mini-map {
-          position: absolute;
-          bottom: 25px;
-          right: 15px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-        }
-        .relative {
-          position: relative;
-        }
-      `}</style>
     </>
   );
 }
