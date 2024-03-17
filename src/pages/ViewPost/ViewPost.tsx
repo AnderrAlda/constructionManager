@@ -3,6 +3,7 @@ import { worker1, working1, yourSVGfile } from "../../assets";
 
 import { VerticalScrollLayout } from "../../layouts";
 import { Header } from "../../components";
+import { ZoomI } from "../../components/ZoomI";
 
 const ViewPost = () => {
   const Data = {
@@ -64,9 +65,7 @@ const ViewPost = () => {
 
         <div className="ml-5 mr-5 mt-5 flex flex-col gap-2">
           <p className="text-xl font-bold">Plano:</p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
-            <image xlinkHref={yourSVGfile} width="500" height="500" />
-          </svg>
+          <ZoomI width={360} height={600} />
         </div>
       </VerticalScrollLayout>
     </div>

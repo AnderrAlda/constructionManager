@@ -5,8 +5,7 @@ const Test = () => {
     <div>
       <div>
         <h1>Your Page Title</h1>
-        <ZoomI width={380} height={600} />{" "}
-        {/* Adjust width and height as needed */}
+        <ZoomI width={380} height={600} />
       </div>
     </div>
   );
